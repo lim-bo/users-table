@@ -1,0 +1,26 @@
+.table-options-form {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    padding: 10px;
+    background-color: var(--table-options-bg-color);
+    color: var(--main-font-color);
+    font-weight: 700;
+    border-radius: 5px;
+}
+
+.table-options__input {
+    padding: 5px;
+    background-color: var(--select-bg-color);
+    color: var(--main-font-color);
+    border-radius: 5px;
+    transition: box-shadow 0.3s ease;
+}
+
+.table-options__input:focus {
+    outline: none;
+}
+
+.table-options__input:hover {
+    box-shadow: 3px 3px 0 #000;
+}

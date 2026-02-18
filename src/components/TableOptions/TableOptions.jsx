@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { useUsers } from "../../context/UsersContext";
 import "./TableOptions.css";
 
@@ -10,6 +11,8 @@ function TableOptions() {
         filter,
         setFilter
     } = useUsers();
+
+    const timerRef = useRef(null);
 
     const handleSortFieldChange = (evt) => {
         if (evt.target.value) {
@@ -38,16 +41,31 @@ function TableOptions() {
 
     const handleFilterValueChange = (evt) => {
         if (!filter.field) return;
-        setFilter(prev => ({
-            ...prev,
-            value: evt.target.value
-        }));
+
+        if (timerRef.current) {
+            clearTimeout(timerRef.current);
+        }
+
+        timerRef.current = setTimeout(() => {
+            setFilter(prev => ({
+                ...prev,
+                value: evt.target.value
+            }));
+        }, 300);
     }
 
+    useEffect(() => {
+        return () => {
+            if (timerRef.current) {
+                clearTimeout(timerRef.current);
+            }
+        }
+    }, []);
+
     return (
-        <form className="table-options-form">
+        <form className="table-options-form" onSubmit={(evt) => {evt.preventDefault()}}>
             <label htmlFor="sort-field">Сортировка по:</label>
-            <select id="sort-field" value={sortField} onChange={handleSortFieldChange}>
+            <select id="sort-field" className="table-options__input" value={sortField} onChange={handleSortFieldChange}>
                 <option value="">Без сортировки</option>
                 <option value="lastName">Фамилия</option>
                 <option value="firstName">Имя</option>
@@ -56,13 +74,13 @@ function TableOptions() {
                 <option value="phone">Номер телефона</option>
             </select>
             <label htmlFor="sort-order">Порядок: </label>
-            <select id="sort-order" value={sortOrder} onChange={handleSortOrderChange}>
+            <select id="sort-order" className="table-options__input" value={sortOrder} onChange={handleSortOrderChange}>
                 <option value="">Без сортировки</option>
                 <option value="asc">По возрастанию</option>
                 <option value="desc">По убыванию</option>
             </select>
             <label htmlFor="filter-field">Фильтрация по:</label>
-            <select id="filter-field" value={filter.field} onChange={handleFilterFieldChange}>
+            <select id="filter-field" className="table-options__input" value={filter.field} onChange={handleFilterFieldChange}>
                 <option value="">Без фильтрации</option>
                 <option value="lastName">Фамилия</option>
                 <option value="firstName">Имя</option>
@@ -71,7 +89,7 @@ function TableOptions() {
                 <option value="phone">Номер телефона</option>
             </select>
             <label htmlFor="filter-value">Значение:</label>
-            <input id="filter-value" placeholder="Без фильтра..." onChange={handleFilterValueChange}/>
+            <input id="filter-value" className="table-options__input" placeholder="Без фильтра..." onChange={handleFilterValueChange}/>
         </form>
     );
 }

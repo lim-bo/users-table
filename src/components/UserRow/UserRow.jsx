@@ -2,7 +2,7 @@ import "./UserRow.css";
 
 function UserRow({ user }) {
     return (
-        <tr>
+        <tr className="users-table__row">
             <td>{user.lastName}</td>
             <td>{user.firstName}</td>
             <td>{user.maidenName ? user.maidenName : "-"}</td>

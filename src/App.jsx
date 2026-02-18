@@ -12,7 +12,7 @@ function App() {
         <TableOptions/>
         <UsersTable />
       </UsersProvider>
-      <footer>
+      <footer className="footer">
       </footer>
     </>
   )

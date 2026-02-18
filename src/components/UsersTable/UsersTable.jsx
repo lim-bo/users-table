@@ -33,14 +33,14 @@ function UsersTable() {
 
     if (loading) {
         return (
-            <div>
+            <div className="table-placeholder">
                 <p>Загрузка...</p>
             </div>
         );
     }
     if (error) {
         return (
-            <div>
+            <div className="table-placeholder">
                 <p>{`Ошибка: ${error.name}`}</p>
             </div>
         );
@@ -61,7 +61,7 @@ function UsersTable() {
                     <th>Город</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody className="users-table__body">
             {
                 data?.users.map((user) => {
                     return (<UserRow key={user.id} user={user}/>);

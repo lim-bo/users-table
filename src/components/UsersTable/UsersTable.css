@@ -1,0 +1,33 @@
+.users-table {
+    inline-size: 100%;
+    max-inline-size: 1400px;
+    block-size: 100%;
+    flex-grow: 1;
+    border-collapse: collapse;
+    border: 3px solid #000;
+    font-size: clamp(8px, 6.54px + 0.39vw, 12px);
+}
+
+.table-placeholder {
+    block-size: 100%;
+}
+
+th, td {
+    padding: 5px;
+}
+
+th {
+    letter-spacing: 1.5px;
+}
+
+tbody td {
+    text-align: center;
+}
+
+thead th {
+    border: 3px solid #000;
+}
+
+tbody td {
+    border: 1px solid var(--td-border-color);
+}

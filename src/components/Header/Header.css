@@ -1,0 +1,6 @@
+.header {
+    inline-size: 100%;
+    padding: 10px;
+    background-color: var(--header-bg-color);
+    color: var(--main-font-color);
+}

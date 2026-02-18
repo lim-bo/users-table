@@ -1,5 +1,13 @@
 :root {
-    --white: #fff;
+    --white: #eee;
     --blue: #2a2781;
     --orange: #e86630;
+
+    --bg-color: var(--white);
+    --header-bg-color: var(--blue);
+    --footer-bg-color: var(--blue);
+    --main-font-color: var(--white);
+    --table-options-bg-color: var(--orange);
+    --td-border-color: #00000055;
+    --select-bg-color: var(--blue);
 }
