@@ -9,7 +9,9 @@
 }
 
 .table-placeholder {
+    position: relative;
     block-size: 100%;
+    inline-size: 100%;
 }
 
 th, td {

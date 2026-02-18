@@ -5,6 +5,7 @@ import { tableConfig } from "./table_config";
 import "./UsersTable.css";
 import UserRow from "../UserRow/UserRow";
 import { useUsers } from "../../context/UsersContext";
+import Loader from "../Loader/Loader";
 
 function UsersTable() {
     const [ page, setPage ] = useState(1); 
@@ -34,7 +35,7 @@ function UsersTable() {
     if (loading) {
         return (
             <div className="table-placeholder">
-                <p>Загрузка...</p>
+                <Loader/>
             </div>
         );
     }
