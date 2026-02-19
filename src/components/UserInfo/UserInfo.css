@@ -1,0 +1,24 @@
+.user-info {
+    font-size: 16px;
+}
+
+.user-info__avatar {
+    object-fit: cover;
+    object-position: center;
+    border: 2px solid var(--orange);
+    box-shadow: 3px 3px 0 #000;
+}
+
+.user-info__list {
+    display: grid;
+    grid-template-columns: max-content;
+    padding: 10px 5px;
+    gap: 5px;
+}
+
+.user-info__list-item {
+    padding: 0 5px;
+    background-color: var(--user-info-item-bg);
+    color: var(--main-font-color);
+    border-radius: 5px;
+}

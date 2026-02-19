@@ -1,0 +1,52 @@
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }   
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    animation: fadeIn 0.2s ease;
+}
+
+.modal-content {
+    position: relative;
+    max-inline-size: 700px;
+    max-block-size: 90%;
+    padding: 10px;
+    background-color: var(--modal-bg);
+    font-family: Sansation, sans-serif;
+    font-weight: normal;
+    font-size: 12px;
+    border: 2px solid var(--modal-border-color);
+    border-radius: 10px;
+}
+
+.modal-close {
+    position: absolute;
+    block-size: 30px;
+    inline-size: 40px;
+    inset-block-start: 6px;
+    inset-inline-end: 6px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.modal-close:focus {
+    outline: none;
+}
+
+.modal-close:hover {
+    transform: scale(1.1);
+    background-color: var(--orange);
+}

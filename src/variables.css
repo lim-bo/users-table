@@ -10,4 +10,7 @@
     --table-options-bg-color: var(--orange);
     --td-border-color: #00000055;
     --select-bg-color: var(--blue);
+    --modal-bg: var(--white);
+    --modal-border-color: var(--orange);
+    --user-info-item-bg: var(--blue);
 }

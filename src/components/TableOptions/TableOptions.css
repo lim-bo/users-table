@@ -1,5 +1,6 @@
 .table-options-form {
     display: flex;
+    flex-wrap: wrap;
     gap: 5px;
     align-items: center;
     padding: 10px;
