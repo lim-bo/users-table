@@ -9,7 +9,8 @@ function TableOptions() {
         setSortField,
         setSortOrder,
         filter,
-        setFilter
+        setFilter,
+        setPage
     } = useUsers();
 
     const timerRef = useRef(null);
@@ -21,6 +22,7 @@ function TableOptions() {
             setSortOrder("");
         }
         setSortField(evt.target.value);
+        setPage(1);
     }
 
     const handleSortOrderChange = (evt) => {
@@ -30,6 +32,7 @@ function TableOptions() {
             setSortField("");
         }
         setSortOrder(evt.target.value);
+        setPage(1);
     }
 
     const handleFilterFieldChange = (evt) => {
@@ -37,6 +40,7 @@ function TableOptions() {
             ...prev,
             field: evt.target.value
         }));
+        setPage(1);
     }
 
     const handleFilterValueChange = (evt) => {
@@ -51,6 +55,7 @@ function TableOptions() {
                 ...prev,
                 value: evt.target.value
             }));
+            setPage(1);
         }, 300);
     }
 
