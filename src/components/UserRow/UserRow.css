@@ -1,3 +1,8 @@
 .users-table__row {
     block-size: 25px;
+    transition: background-color 0.2s ease-out;
+}
+
+.users-table__row:hover {
+    background-color: #fff;
 }

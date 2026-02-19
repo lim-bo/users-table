@@ -9,6 +9,7 @@ export function UsersProvider({ children }) {
         field: "",
         value: ""
     });
+    const [page, setPage] = useState(1);
 
     const value = {
         sortField,
@@ -16,7 +17,9 @@ export function UsersProvider({ children }) {
         sortOrder,
         setSortOrder,
         filter,
-        setFilter
+        setFilter,
+        page,
+        setPage
     };
 
     return (

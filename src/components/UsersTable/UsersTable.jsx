@@ -4,12 +4,12 @@ import { useFetch } from "../../client/hooks";
 import { tableConfig } from "./table_config";
 import "./UsersTable.css";
 import UserRow from "../UserRow/UserRow";
+import Pagination from '../Pagination/Pagination'
 import { useUsers } from "../../context/UsersContext";
 import Loader from "../Loader/Loader";
 
 function UsersTable() {
-    const [ page, setPage ] = useState(1); 
-    const {sortField, sortOrder, filter} = useUsers();
+    const {sortField, sortOrder, filter, page} = useUsers();
     const fetchURL = useMemo(() => {
         let url;
         if (filter.field) {
@@ -39,6 +39,7 @@ function UsersTable() {
             </div>
         );
     }
+
     if (error) {
         return (
             <div className="table-placeholder">
@@ -48,28 +49,31 @@ function UsersTable() {
     }
 
     return (
-        <table className="users-table">
-            <thead>
-                <tr>
-                    <th>Фамилия</th>
-                    <th>Имя</th>
-                    <th>Девичья фамилия</th>
-                    <th>Возраст</th>
-                    <th>Пол</th>
-                    <th>Номер телефона</th>
-                    <th>Email</th>
-                    <th>Страна</th>
-                    <th>Город</th>
-                </tr>
-            </thead>
-            <tbody className="users-table__body">
-            {
-                data?.users.map((user) => {
-                    return (<UserRow key={user.id} user={user}/>);
-                })
-            }
-            </tbody>
-        </table>
+        <>
+            <table className="users-table">
+                <thead>
+                    <tr>
+                        <th>Фамилия</th>
+                        <th>Имя</th>
+                        <th>Девичья фамилия</th>
+                        <th>Возраст</th>
+                        <th>Пол</th>
+                        <th>Номер телефона</th>
+                        <th>Email</th>
+                        <th>Страна</th>
+                        <th>Город</th>
+                    </tr>
+                </thead>
+                <tbody className="users-table__body">
+                {
+                    data?.users.map((user) => {
+                        return (<UserRow key={user.id} user={user}/>);
+                    })
+                }
+                </tbody>
+            </table>
+            <Pagination totalPages={Math.ceil(data?.total / tableConfig.rowsPerList)}/>
+        </>
     );
 }
 

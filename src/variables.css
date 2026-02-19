@@ -1,6 +1,7 @@
 :root {
     --white: #eee;
     --blue: #2a2781;
+    --blue-dimmed: #171559;
     --orange: #e86630;
 
     --bg-color: var(--white);

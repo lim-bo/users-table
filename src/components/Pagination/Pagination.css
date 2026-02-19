@@ -1,0 +1,36 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.pagination__item {
+    border-radius: 6px;
+    block-size: 25px;
+    inline-size: 25px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.pagination__item svg {
+    fill: var(--white);
+}
+
+.pagination__item:not(.pagination__current-page):hover {
+    transform: scale(1.1);
+    background-color: var(--blue-dimmed);
+}
+
+.pagination__current-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+    background-color: var(--orange);
+}
+
+.pagination__prev-page,
+.pagination__next-page {
+    background-color: var(--blue);
+}
